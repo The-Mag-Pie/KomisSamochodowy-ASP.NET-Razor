@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@((ViewBag.Title != null && ViewBag.Title != "") ? ViewBag.Title + " - " : "")Komis samochodowy BestCars</title>
+    <link rel="stylesheet" href="./css/custom-controls.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <script src="./js/main.js"></script>
+    @switch (ViewBag.Filename)
+    {
+        case "index":
+            <link rel="stylesheet" href="./css/index.css">
+            break;
+
+        case "cars":
+            <link rel="stylesheet" href="./css/cars.css">
+            <script src="./js/cars.js"></script>
+            break;
+
+        case "car-details":
+            <link rel="stylesheet" href="./css/car-details.css">
+            <script src="./js/car-details.js"></script>
+            break;
+
+        case "contact":
+            <link rel="stylesheet" href="./css/contact.css">
+            <script src="./js/contact.js"></script>
+            break;
+
+        case "admin-login":
+            <link rel="stylesheet" href="./css/admin-login.css">
+            <script src="./js/admin-login.js"></script>
+            break;
+
+        case "admin-add-car":
+            <link rel="stylesheet" href="./css/admin-add-modify-car.css">
+            <script src="./js/admin-add-modify-car.js"></script>
+            <script src="./js/admin-add-car.js"></script>
+            break;
+
+        case "admin-modify-car":
+            <link rel="stylesheet" href="./css/admin-add-modify-car.css">
+            <script src="./js/admin-add-modify-car.js"></script>
+            <script src="./js/admin-modify-car.js"></script>
+            break;
+
+        case "admin-messages-list":
+            <link rel="stylesheet" href="./css/admin-messages-list.css">
+            <script src="./js/admin-messages-list.js"></script>
+            break;
+    }
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1 class="header-title">
+                Komis samochodowy <span class="header-title-bold">BestCars</span>
+            </h1>
+        </div>
+
+        <div class="flex-menu">
+            <a asp-page="/Main/Index" class="flex-menu-entry"><p>Strona główna</p></a>
+            <a asp-page="/Main/Cars" asp-route-type="osobowe" class="flex-menu-entry"><p>Samochody osobowe</p></a>
+            <a asp-page="/Main/Cars" asp-route-type="dostawcze" class="flex-menu-entry"><p>Samochody dostawcze</p></a>
+            <a asp-page="/Main/Contact" class="flex-menu-entry"><p>Kontakt</p></a>
+        </div>
+        @RenderBody()
+        <div class="footer">
+            <div class="footer-info">
+                <div>
+                    <p>Imię i nazwisko: <span>Bartosz XXXXX</span></p>
+                    <p>Numer indeksu: <span>012345</span></p>
+                    <p>Grupa zajęciowa (projektowa): <span>0</span></p>
+                    <p>Email: <span><a href="mailto:XXXXXXX@student.po.edu.pl">XXXXXXX@student.po.edu.pl</a></span></p>
+                    <p><span></span></p>
+                </div>
+            </div>
+            <div class="footer-po-logo">
+                <a target="_blank" href="https://po.edu.pl">
+                    <img src="./images/po_logo.jpg" alt="Politechnika opolska">
+                </a>
+            </div>
+        </div>
+        <div class="login-link">
+            @{
+                bool LoggedIn = BitConverter.ToBoolean(Context.Session.Get("LoggedIn") != null ? Context.Session.Get("LoggedIn") : BitConverter.GetBytes(false));
+                if (LoggedIn)
+                {
+                    <a href="javascript:void()" onclick="logout()">Wyloguj się</a>
+                }
+                else
+                {
+                    <a asp-page="/Admin/Login">Logowanie</a>
+                }
+            }
+        </div>
+    </div>
+</body>
+</html>

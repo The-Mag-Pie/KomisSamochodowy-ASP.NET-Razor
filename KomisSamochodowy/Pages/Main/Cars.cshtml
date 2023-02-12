@@ -1,0 +1,46 @@
+﻿@page "/Cars"
+@model KomisSamochodowy.Pages.CarsModel
+@{
+    
+
+    ViewBag.Title = "";
+    if (Model.Type == "osobowe")
+		ViewBag.Title = "Samochody osobowe";
+	else if (Model.Type == "dostawcze")
+		ViewBag.Title = "Samochody dostawcze";
+	else
+	{
+		<script>
+			alert("BŁĄD! Niepoprawne żądanie.");
+			location.href = "./Index";
+		</script>
+	}
+
+    ViewBag.Filename = "cars";
+
+    bool LoggedIn = BitConverter.ToBoolean(HttpContext.Session.Get("LoggedIn") != null ? HttpContext.Session.Get("LoggedIn") : BitConverter.GetBytes(false));
+}
+
+<div class="main-content">
+    <h2>Poznaj ofertę na nasze <span style="color: blue;">@(((string)ViewBag.Title).ToLower())</span></h2>
+    <h5>Podane ceny są cenami do negocjacji!</h5>
+    @if (LoggedIn)
+    {
+    <div class="admin-add-car">
+        <a class="a-button" asp-page="/Admin/Add-car" asp-route-type="@Model.Type">Dodaj nowy samochód</a>
+    </div>
+    }
+    <table id="carsTable">
+        <tr>
+            <th></th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Rodzaj paliwa</th>
+            <th>Przebieg</th>
+            <th>Cena</th>
+            <th></th>
+        </tr>
+    </table>
+    <h1 id="loadingInfo">Trwa pobieranie danych...</h1>
+    <h1 id="noDataInfo" style="text-align: center; display: none;">Aktualnie brak samochodów na sprzedaż</h1>
+</div>

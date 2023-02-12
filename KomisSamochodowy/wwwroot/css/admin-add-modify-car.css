@@ -1,0 +1,67 @@
+.main-content > h1 {
+    text-align: center;
+}
+
+.form-flex-container {
+    display: flex;
+}
+
+.left-img {
+    display: flex;
+    width: 40%;
+    text-align: center;
+    align-items: center;
+}
+
+.left-img > div > img {
+    width: 100%;
+}
+
+.left-img > div > h1 {
+    display: none;
+    color: red;
+}
+
+.left-img > div > input {
+    margin: 15px;
+}
+
+.right-details {
+    width: 60%;
+}
+
+.right-details > table {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+    text-align: center;
+}
+
+.right-details > table tr > td {
+    line-height: 22px;
+}
+
+.right-details > table tr > td > p {
+    margin: 0;
+}
+
+.right-details > table tr > td > input,
+.right-details > table tr > td > select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid darkgreen;
+}
+
+.right-details > table tr > td > input {
+    width: 181px;
+}
+
+.right-details > table tr > td > select {
+    width: 195px;
+}
+
+.main-content > form > .button-button {
+    display: block;
+    margin: 10px auto;
+    font-size: 1.5em;
+}

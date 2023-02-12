@@ -1,0 +1,84 @@
+.main-content > h1 {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.left-img {
+    display: flex;
+    width: 40%;
+    text-align: center;
+    align-items: center;
+}
+
+.left-img > img {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.right-details {
+    width: 60%;
+}
+
+.right-details > table {
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    text-align: center;
+}
+
+.right-details > table tr > td {
+    line-height: 22px;
+}
+
+.right-details > table tr > td > span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.right-details > table tr:nth-child(1) > td > span {
+    color: darkmagenta;
+}
+
+.right-details > table tr:nth-child(2) > td > span {
+    color: brown;
+}
+
+.right-details > table tr:nth-child(3) > td > span {
+    color: olive;
+}
+
+.right-details > table tr:nth-child(4) > td > span {
+    color: seagreen;
+}
+
+.right-details > table tr:nth-child(5) > td > span {
+    color: darkred;
+    font-size: 2em;
+}
+
+.contact-button-container > a {
+    font-size: 1.5em;
+    margin: 0 auto 10px auto;
+}
+
+.admin-buttons-container {
+    display: flex;
+    width: 500px;
+    margin: 0 auto 10px auto;
+}
+
+.button {
+    width: 50%;
+    text-align: center;
+}
+
+.button > a {
+    margin: auto;
+}
+
+.button > button {
+    font-size: 1em;
+}

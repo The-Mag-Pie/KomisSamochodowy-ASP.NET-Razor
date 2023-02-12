@@ -1,0 +1,25 @@
+.login-title {
+    text-align: center;
+}
+
+.login-form-container > div {
+    margin: 0 auto 10px auto;
+    width: fit-content;
+}
+
+.login-form-container table tr > td {
+    padding: 10px 0 10px 0;
+}
+
+.login-form-container table tr > td > input {
+    padding: 7px;
+    width: 225px;
+}
+
+.login-form-container table tr:nth-child(3) > td {
+    text-align: center;
+}
+
+.login-form-container table tr > td > button {
+    font-size: 1.25em;
+}

@@ -1,0 +1,68 @@
+﻿@page "/Car-details"
+@model KomisSamochodowy.Pages.Car_detailsModel
+@{
+	if (Model.ID == null)
+	{
+		<script>
+			alert("BŁĄD! Niepoprawne żądanie.");
+			location.href = "./Index";
+		</script>
+	}
+
+	ViewBag.Title = "Szczegóły pojazdu";
+	ViewBag.Filename = "car-details";
+
+    bool LoggedIn = BitConverter.ToBoolean(HttpContext.Session.Get("LoggedIn") != null ? HttpContext.Session.Get("LoggedIn") : BitConverter.GetBytes(false));
+}
+
+<div class="main-content">
+    <h1>Szczegóły samochodu - <span id="titleBrandModel" style="color: forestgreen;"></span></h1>
+    <h1 id="loadingInfo">Trwa pobieranie danych...</h1>
+    <div class="flex-container">
+        <div class="left-img">
+            <img id="carImage" alt="Zdjęcie samochodu">
+        </div>
+        <div class="right-details">
+            <table>
+                <tr>
+                    <td>Marka<br><span id="brand"></span></td>
+                    <td>Model<br><span id="model"></span></td>
+                    <td>Rocznik<br><span id="yearProduction"></span></td>
+                </tr>
+                <tr>
+                    <td>Przebieg<br><span id="mileage"></span></td>
+                    <td>Rodzaj paliwa<br><span id="fuelType"></span></td>
+                    <td>Rodzaj napędu<br><span id="driveType"></span></td>
+                </tr>
+                <tr>
+                    <td>Pojemność skokowa<br><span id="engineDisplacement"></span></td>
+                    <td>Moc silnika<br><span id="enginePower"></span></td>
+                    <td>Skrzynia biegów<br><span id="transmission"></span></td>
+                </tr>
+                <tr>
+                    <td>Spalanie (cykl mieszany)<br><span id="fuelConsumption"></span></td>
+                    <td>Rodzaj nadwozia<br><span id="body"></span></td>
+                    <td>Ilość drzwi<br><span id="doors"></span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Cena<br><span id="price"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="contact-button-container">
+        <a id="contactButton" class="a-button" href>Skontaktuj się z nami w sprawie tego samochodu</a>
+    </div>
+    @if (LoggedIn)
+    {
+    <div class="admin-buttons-container">
+        <div class="button">
+            <a class="a-button" asp-page="/Admin/Modify-car" asp-route-id="@Model.ID">Modyfikuj dane</a>
+        </div>
+        <div class="button">
+            <button onclick="deleteCarClick()" class="button-button">Usuń pojazd</button>
+        </div>
+    </div>   
+    }
+</div>

@@ -1,0 +1,51 @@
+.main-content {
+    display: block;
+    overflow: auto;
+}
+
+.left-element {
+    float: left;
+    margin-right: 15px;
+}
+
+.right-element {
+    float: right;
+    margin-left: 15px;
+}
+
+.left-element img, .right-element img {
+    height: 400px;
+}
+
+.center-content {
+    text-align: justify;
+}
+
+.center-content > span {
+    text-align: center;
+}
+
+.center-content > span > h3 {
+    margin: 35px;
+    font-style: italic;
+}
+
+.center-content > p {
+    line-height: 35px;
+}
+
+.buttons-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+}
+
+.button-container {
+    width: 50%;
+}
+
+.button-container a {
+    margin: 25px;
+}

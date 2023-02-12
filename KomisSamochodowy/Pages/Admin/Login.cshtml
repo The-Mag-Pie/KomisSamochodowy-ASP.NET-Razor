@@ -1,0 +1,40 @@
+﻿@page "/Admin-login"
+@model KomisSamochodowy.Pages.Admin.LoginModel
+@{
+	ViewBag.Title = "Logowanie do panelu administratora";
+	ViewBag.Filename = "admin-login";
+}
+
+<h1 class="login-title">Panel administratora - Logowanie</h1>
+@{
+    if (ViewBag.LoggedIn != null)
+    {
+        if (ViewBag.LoggedIn)
+        {
+            <script>alert("Poprawnie zalogowano."); location.href = "./Index";</script>
+        }
+        else
+        {
+            <h1 style="text-align: center; color: red;">Niepoprawne dane logowania!</h1>
+        }
+    }
+}
+<div class="login-form-container">
+    <div>
+        <form method="post" onsubmit="return formValidate();">
+            <table>
+                <tr>
+                    <td>@Html.DisplayNameFor(n => Model.Username):</td>
+                    <td><input asp-for="Username"></td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(n => Model.Password):</td>
+                    <td><input asp-for="Password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="button-button" type="submit">Zaloguj się</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

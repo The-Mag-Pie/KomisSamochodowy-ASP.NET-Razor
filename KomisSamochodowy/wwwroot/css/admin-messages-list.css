@@ -1,0 +1,42 @@
+.main-content > h1 {
+    text-align: center;
+}
+
+#messagesTable {
+    width: 100%;
+    border: 2px solid brown;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#messagesTable tr th, #messagesTable tr td {
+    border: 2px solid brown;
+    padding: 7px;
+}
+
+/* data i godzina */
+#messagesTable tr > td:nth-child(1) {
+    width: 100px;
+}
+
+/* imię */
+#messagesTable tr > td:nth-child(2) {
+    width: 100px;
+}
+
+/* email */
+#messagesTable tr > td:nth-child(3) {
+    width: 150px;
+}
+
+/* temat */
+#messagesTable tr > td:nth-child(4) {
+    width: 200px;
+}
+
+/* treść */
+#messagesTable tr > td:nth-child(5) {
+    width: 400px;
+    text-align: left;
+}

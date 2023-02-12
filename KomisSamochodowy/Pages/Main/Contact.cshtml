@@ -1,0 +1,72 @@
+﻿@page "/Contact"
+@model KomisSamochodowy.Pages.ContactModel
+@{
+    ViewBag.Title = "Kontakt";
+    ViewBag.Filename = "contact";
+
+    ViewBag.Topic = "";
+    if (Model.ID != null && Model.Brand != null && Model.Model != null)
+        ViewBag.Topic = $"Dotyczy samochodu {Model.Brand} {Model.Model} #{Model.ID}";
+
+    bool LoggedIn = BitConverter.ToBoolean(HttpContext.Session.Get("LoggedIn") != null ? HttpContext.Session.Get("LoggedIn") : BitConverter.GetBytes(false));
+}
+
+<div class="main-content">
+    <h1 class="main-title">Skontaktuj się z nami</h1>
+    <h1 id="loadingInfo" style="display: none;">Wysyłanie wiadomości...</h1>
+    <div class="flex-container">
+        <div class="flex-element company-details">
+            <p><b>Komis samochodowy BestCars Jan Kowalski S. C.</b></p>
+            <p>ul. Oleska 40</p>
+            <p>45-123 Opole</p>
+            <p>tel. <a href="tel:+48774541234">77 454 12 34</a></p>
+            <p>fax: <a href="tel:+48774541233">77 454 12 33</a></p>
+            <p>E-mail: <a href="mailto:bestcars@email.pl">bestcars@email.pl</a></p>
+            <a class="a-button" target="_blank" href="https://www.google.com/maps/place/Oleska+40,+46-020+Opole">Pokaż na mapie</a>
+        </div>
+        <div class="flex-element contact-form">
+            <form onsubmit="return false;">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th><h3>Formularz kontaktowy</h3></th>
+                    </tr>
+                    <tr>
+                        <td>Imię:</td>
+                        <td>
+                            <input id="nameText" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td>
+                            <input id="emailText" type="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Temat:</td>
+                        <td>
+                            <input id="topicText" type="text" value="@ViewBag.Topic">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Treść:</td>
+                        <td>
+                            <textarea id="contentTextarea"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="button-button" type="submit" onclick="sendMessage()">Wyślij</button>
+                            @if (LoggedIn)
+                            {
+                            <a class="a-button" style="margin: 5px auto;" asp-page="/Admin/Messages-list">Pokaż wiadomości</a>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.a-button {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: darkred;
+    padding: 20px 30px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.a-button:hover {
+    background-color: red;
+    transition: background-color .2s ease-out;
+}
+
+.a-button:active {
+    background-color: darkgoldenrod;
+}
+
+.button-button {
+    color: white;
+    font-weight: bold;
+    background-color: darkred;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 15px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.button-button:hover {
+    background-color: red;
+    transition: background-color .2s ease-out;
+}
+
+.button-button:active {
+    background-color: darkgoldenrod;
+}
+
+#loadingInfo {
+    text-align: center;
+    font-size: 3.5em;
+    color: darkred;
+}

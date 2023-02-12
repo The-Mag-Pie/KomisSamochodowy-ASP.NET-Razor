@@ -1,0 +1,38 @@
+.main-content > h2 {
+    text-align: center;
+    color: brown;
+}
+
+.main-content > h5 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.main-content > table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid brown;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.main-content > table td, .main-content > table th {
+    border: 2px solid brown;
+}
+
+.main-content > table th {
+    padding: 7px;
+}
+
+.main-content > table td > img {
+    width: 100px;
+}
+
+.main-content > table td > a {
+    margin: 5px;
+    padding: 5px;
+}
+
+.admin-add-car > a {
+    margin: 10px auto 10px auto;
+}

@@ -1,0 +1,27 @@
+﻿@page "/Admin-messages-list"
+@model KomisSamochodowy.Pages.Admin.Messages_listModel
+@{
+	ViewBag.Title = "Lista wiadomości";
+    ViewBag.Filename = "admin-messages-list";
+
+    bool LoggedIn = BitConverter.ToBoolean(HttpContext.Session.Get("LoggedIn") != null ? HttpContext.Session.Get("LoggedIn") : BitConverter.GetBytes(false));
+    if (LoggedIn == false)
+    {
+        <script>alert("Nie jesteś zalogowany!"); location.href = "./Index";</script>
+    }
+}
+
+<div class="main-content">
+    <h1>Lista wiadomości</h1>
+    <h1 id="loadingInfo">Ładowanie danych...</h1>
+    <table id="messagesTable">
+        <tr>
+            <th>Data i godzina</th>
+            <th>Imię</th>
+            <th>E-mail</th>
+            <th>Temat</th>
+            <th>Treść</th>
+        </tr>
+    </table>
+    <h1 id="noDataInfo" style="text-align: center; display: none;">Brak wiadomości</h1>
+</div>

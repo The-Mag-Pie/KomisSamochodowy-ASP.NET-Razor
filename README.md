@@ -5,7 +5,8 @@ Implemented functionalities:
 1. Entity Framework with SQLite database
 2. API Controllers
 3. ASP Routes
-4. AJAX (XMLHttpRequest)
+4. Dependency injection (DbContext)
+5. AJAX (XMLHttpRequest)
 
 The UI of the app may be a little bit poor because I mainly focused on backend.
 

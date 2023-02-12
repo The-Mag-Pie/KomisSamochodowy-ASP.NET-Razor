@@ -8,3 +8,5 @@ Implemented functionalities:
 4. AJAX (XMLHttpRequest)
 
 The UI of the app may be a little bit poor because I mainly focused on backend.
+
+<b>Important:</b> Default username and password: admin/admin
